@@ -1,6 +1,8 @@
 package model;
 
-public class Book extends MediaItem{
+import java.io.Serializable;
+
+public class Book extends MediaItem implements Serializable {
     private String author;
     private int year;
     private int pageCount;
@@ -14,6 +16,6 @@ public class Book extends MediaItem{
 
     @Override
     public String summary() {
-        return "Book[ID: " + id + ", Title: " + title + ", Author: " + author + ", Year: " + year + ", Pages: " + pageCount + "]";
+        return "Book,BK-" + id + "," + title + "," + author + "," + year + "," + pageCount;
     }
 }

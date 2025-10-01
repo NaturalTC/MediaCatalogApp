@@ -1,6 +1,8 @@
 package model;
 
-public class Album extends MediaItem{
+import java.io.Serializable;
+
+public class Album extends MediaItem implements Serializable {
     private String artist;
     private int year;
     private int trackCount;
@@ -14,6 +16,6 @@ public class Album extends MediaItem{
 
     @Override
     public String summary() {
-        return "Album[ID: " + id + ", Title: " + title + ", Artist: " + artist + ", Year: " + year + ", Tracks: " + trackCount + "]";
+        return "Album,AL-" + id + "," + title + "," + artist + "," + year + "," + trackCount;
     }
 }

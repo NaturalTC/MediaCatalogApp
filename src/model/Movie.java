@@ -1,6 +1,8 @@
 package model;
 
-public class Movie extends MediaItem{
+import java.io.Serializable;
+
+public class Movie extends MediaItem implements Serializable {
     private String director;
     private int year;
     private int runtimeMinutes;
@@ -14,6 +16,6 @@ public class Movie extends MediaItem{
 
     @Override
     public String summary() {
-        return "Movie[ID: " + id + ", Title: " + title + ", Director: " + director + ", Year: " + year + ", Runtime: " + runtimeMinutes + " mins]";
+        return "Movie,Mv-" + id + "," + title + "," + director + "," + year + "," + runtimeMinutes;
     }
 }
