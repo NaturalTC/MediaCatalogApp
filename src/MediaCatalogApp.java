@@ -19,63 +19,25 @@ o	Use a simple text-based menu for user interaction (completed)
 6th - •	Implement loading and save logic on boot and shutdown (not completed)
 7th - • Add Javadoc comments to all classes and methods. (not completed)
 */
+import controller.MediaController;
 import model.MediaItem;
+import model.MediaParser;
+import view.ConsoleView;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MediaCatalogApp {
 
+    // Entry point of the application
     public static void main(String[] args) {
 
-        // Initialize components
-        ArrayList<MediaItem> mediaItems = new ArrayList<>();
+        // Initialize the view and controller
+        ConsoleView view = new ConsoleView();
+        MediaController controller = new MediaController(view);
 
-        // App Logic
+        // Start the application
+        controller.start();
 
-        // Running state
-        boolean running = true;
-
-        // Main loop
-        while (running) {
-            System.out.println("1 - List all media items");
-            System.out.println("2 - Add a new media item");
-            System.out.println("3 - Save catalog to CSV");
-            System.out.println("4 - Export catalog to binary file");
-            System.out.println("5 - Exit");
-
-            // Accept user input based on the action they want to perform
-            Scanner sc = new Scanner(System.in);
-            String input = sc.nextLine().trim().toLowerCase();
-            switch (input) {
-                case "1":
-                    for (MediaItem item : mediaItems) {
-                        System.out.println(item.summary());
-                    }
-                    break;
-                case "2":
-                    MediaItem newItem = MediaParser.createMediaItem(sc);
-                    if (newItem != null) {
-                        mediaItems.add(newItem);
-                        System.out.println("Media item added.");
-                    } else {
-                        System.out.println("Failed to add media item.");
-                    }
-                    break;
-                case "3":
-                    MediaParser.writeToCSVFile(mediaItems);
-                    System.out.println("Catalog saved to catalog.csv");
-                    break;
-                case "4":
-                    MediaParser.exportToBinaryFile(mediaItems);
-                    System.out.println("Catalog exported to catolog.bin");
-                    break;
-                case "5":
-                    running = false;
-                    System.out.println("Exiting application.");
-                    break;
-                default:
-                    System.out.println("Invalid option. Please try again.");
-            }
-        }
     }
 }
