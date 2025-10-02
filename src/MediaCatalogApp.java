@@ -20,12 +20,7 @@ o	Use a simple text-based menu for user interaction (completed)
 7th - • Add Javadoc comments to all classes and methods. (not completed)
 */
 import controller.MediaController;
-import model.MediaItem;
-import model.MediaParser;
 import view.ConsoleView;
-
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class MediaCatalogApp {
 
