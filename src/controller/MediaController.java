@@ -36,6 +36,7 @@ public class MediaController {
     public void start() {
         boolean running = true;
         while (running) {
+            view.displayWelcomeMessage();
             view.showMenu();
             String input = sc.nextLine().trim().toLowerCase();
 
